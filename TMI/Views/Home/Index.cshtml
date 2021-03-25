@@ -1,0 +1,87 @@
+﻿@model TMI.Models.Usuario
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Partials.cshtml";
+}
+
+<!-- Header - set the background image for the header in the line below -->
+<header id="header" style="background-image: url('https://images.unsplash.com/photo-1613558918658-96c85267598f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1437&q=80');width:auto;height:600px;">
+</header>
+
+<!-- Content section -->
+<section class="py-5" id="nosotros">
+    <div class="container">
+        <h1>Prototipado y Fabricación</h1>
+        <p class="lead">Industria metalmecanica, alimenticia y generación de energía</p>
+        <p>Contamos con expertos en el area de diseño, prototipado, fabricación en el area de metalmecanica y mecanica. Somo expertos en la fabricación de turbinas tipo peltol. Tenemos altos estandares de calidad</p>
+    </div>
+</section>
+
+<!-- Image element - set the background image for the header in the line below -->
+<div class="mb-3" style="background-image: url('https://images.unsplash.com/photo-1612296727716-d6c69d2a2cbb?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1502&q=80');
+        width: auto;
+        height: 600px;
+        background-position:bottom;
+    ">
+</div>
+
+@*Testimonio*@
+<section id="testimonial" style="background: #f1f1f1; padding: 50px 0 30px 0; text-align: center; margin-top: 40px;">
+    <div class="container">
+        <p class="h4 mb-2">
+            Los productos realizados por esta empresa son los mejores tanto en calidad como en servicio al cliente, los productos generados son muy eficientes en el consumo energetido semanal. Los recommiendo adsolutamente
+        </p>
+        <p class="h5">- Cliente</p>
+    </div>
+</section>
+<!--Productos-->
+
+<section id="servicios">
+    <div class="container">
+        <div class="row my-5">
+            <div class="col-md-6">
+                <h2>Turbina 1GW</h2>
+                <p>Una turbina Pelton es uno de los tipos más eficientes de turbina hidráulica. Es una turbomáquina motora, de flujo tangencial, admisión parcial y de acción.</p>
+                <img src="https://3.bp.blogspot.com/-t_bWFOrkEKs/Vv2ucZwqs3I/AAAAAAAABis/aTuxcNE_xrssbcZZte1WpZdJXg5458YXQ/s1600/turbine-pelton-05.jpg" style="width: 90%">
+            </div>
+            <div class="col-md-6">
+                <h2>Turbina Francis</h2>
+                <p>Las turbinas Francis son turbinas hidráulicas que se pueden diseñar para un amplio rango de saltos y caudales, siendo capaces de operar en rangos de desnivel que van de los dos metros hasta varios cientos de metros.</p>
+                <img src="https://hydropowerplant.com/wp-content/uploads/2017/01/1185_4.jpg" style="width: 90%">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Content Formulario -->
+<section class="py-5">
+    <div class="container">
+        <h1>Contacte con nosotros</h1>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="d-flex justify-content-center text text-center">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class=" justify-content-center">
+                    <div class="mb-3">
+                        @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label mb-2" })
+                        @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="mb-3">
+                        @Html.LabelFor(model => model.Apellido, htmlAttributes: new { @class = "control-label mb-2" })
+                        @Html.EditorFor(model => model.Apellido, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Apellido, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="mb-3">
+                        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label mb-2" })
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                    <input type="submit" value="Registrarse" class="btn btn-success mb-4" data-bs-toggle="modal" data-bs-target="#exampleModal" />
+                </div>
+            </div>
+        }
+    </div>
+</section>
+
